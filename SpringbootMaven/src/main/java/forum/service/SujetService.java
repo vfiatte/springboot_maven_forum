@@ -14,4 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface SujetService extends CrudRepository<Sujet, Long>{
     
+    public Iterable<Sujet> findAllByTitre(String titre);
 }
