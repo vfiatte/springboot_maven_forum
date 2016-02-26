@@ -5,13 +5,13 @@
  */
 package forum.service;
 
-import forum.entity.Forum;
+import forum.entity.Message;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author admin
  */
-public interface forumServiceInterface extends CrudRepository<Forum, Long> {
+public interface MessageInterface extends CrudRepository<Message, Long>{
     
 }
