@@ -5,11 +5,20 @@
  */
 package streaming.test;
 
+import forum.service.LoggerServiceConsoleImpl;
+import forum.service.SecurityService;
+import forum.service.SecurityServiceJpaImpl;
+import forum.service.SecurityServiceMock;
+import forum.service.deuxService;
+import forum.service.unService;
 import forum.spring.SpringConfig;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -25,9 +34,20 @@ public class SpringTest {
     @PersistenceContext
     private EntityManager em;
     
+    
+    @Autowired
+    private LoggerServiceConsoleImpl l1;
+    
+    @Autowired
+    private LoggerServiceConsoleImpl l2;
+           
+    @Autowired
+    @Qualifier("security-console")
+    private SecurityService sec;
+    
     @Test
     public void doNadaOK(){
-        
+        Assert.assertTrue(l1 == l2);
     }
     
 }
